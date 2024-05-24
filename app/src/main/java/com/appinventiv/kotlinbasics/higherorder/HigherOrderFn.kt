@@ -1,4 +1,4 @@
-package com.appinventiv.kotlinbasics
+package com.appinventiv.kotlinbasics.higherorder
 
 fun main(){
     print("Higher Order Function")

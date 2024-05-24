@@ -1,4 +1,4 @@
-package com.appinventiv.kotlinbasics
+package com.appinventiv.kotlinbasics.higherorder
 
 fun main(){
     printNewData ({ println("Calling Main Method") })

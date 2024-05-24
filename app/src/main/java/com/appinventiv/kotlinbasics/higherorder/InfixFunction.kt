@@ -1,4 +1,4 @@
-package com.appinventiv.kotlinbasics
+package com.appinventiv.kotlinbasics.higherorder
 
 fun main(){
     println(3.addTwoNumber(5))

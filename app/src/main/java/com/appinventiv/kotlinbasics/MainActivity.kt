@@ -20,7 +20,9 @@ import com.appinventiv.kotlinbasics.flows.flowProducerException
 import com.appinventiv.kotlinbasics.flows.mutableSharedProducer
 import com.appinventiv.kotlinbasics.flows.mutableStateFlowProducer
 import com.appinventiv.kotlinbasics.flows.producer
+import com.appinventiv.kotlinbasics.hilts.UserRepository
 import com.appinventiv.kotlinbasics.ui.theme.KotlinBasicsTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -35,9 +37,14 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.system.measureTimeMillis
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+//    @Inject
+//    lateinit var repository: UserRepository
     @SuppressLint("CoroutineCreationDuringComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,13 +76,23 @@ class MainActivity : ComponentActivity() {
                         stateFlowCollector()
 //                        Exception Handling
                         handleException()
+
+//                        Hilt Dependency Injection
+//                        constructor Injection and Field Injection
+                        constructorInjection()
                     }
 
                 }
             }
         }
     }
-// State flow is like a hot flow and multiple consumers shared data with it,
+
+    private fun constructorInjection() {
+//        repository.saveUser("Shri Ram", "Chandra ji Maharaj")
+
+    }
+
+    // State flow is like a hot flow and multiple consumers shared data with it,
 // it is hot flow as well, but it also maintains the state of the flow
 // it just maintains the last value of its producer
 // All the transformation in Livedata done on Main Thread (thus it impact the performance)
